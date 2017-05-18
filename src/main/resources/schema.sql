@@ -1,0 +1,18 @@
+DROP TABLE IF EXISTS turn;
+DROP TABLE IF EXISTS game;
+
+CREATE TABLE game (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  status VARCHAR(100) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE turn (
+  turn_id INT(11) NOT NULL AUTO_INCREMENT,
+  game_id INT(11) NOT NULL,
+  turn_number INT(11) NOT NULL,
+  position INT(11) NOT NULL,
+  FOREIGN KEY (game_id) REFERENCES game(id),
+  PRIMARY KEY (turn_id)
+);
